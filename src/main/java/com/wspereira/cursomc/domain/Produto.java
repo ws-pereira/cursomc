@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Produto  implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -26,6 +28,7 @@ public class Produto  implements Serializable{
 	/* Mapeamento da lista de categoria, informado a tabela que irá fazer a conexão
 	 * entre as duas tabelas com suas chaves estrangeiras (FK)
 	 */
+	@JsonBackReference
 	@ManyToMany
 	@JoinTable(name = "PRODUTO_CATEGORIA",
 			joinColumns = @JoinColumn(name = "produto_id" ),
